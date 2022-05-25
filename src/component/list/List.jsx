@@ -4,6 +4,7 @@ import Todos from '../Todos/Todos';
 
 function List() {
   const [todos, setTodos] = useState([]);
+  // method
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
@@ -11,7 +12,6 @@ function List() {
     const newTodos = [todo, ...todos];
     setTodos(newTodos);
   };
-
   const updateTodo = (todoId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
@@ -19,7 +19,6 @@ function List() {
 
     setTodos((prev) => prev.map((item) => (item.id === todoId ? newValue : item)));
   };
-
   const removeTodo = (id) => {
     const removedArr = [...todos].filter((todo) => todo.id !== id);
     setTodos(removedArr);
@@ -30,7 +29,7 @@ function List() {
     }));
     setTodos(updatedTodos);
   };
-
+  // render
   return (
     <div className="todo-content">
       <h1>
